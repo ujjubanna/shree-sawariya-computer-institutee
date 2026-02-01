@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally कोर्स - श्री सांवरिया कंप्यूटर इंस्टिट्यूट</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            min-height: 100vh;
+            color: #1a1a2e;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(145deg, #1e3a8a, #0f2657);
+            border-radius: 50px;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .nav-logo {
+            color: #ffd700;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: #ffd700;
+            color: #1e3a8a;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(145deg, #1e3a8a 0%, #0f2657 100%);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 60%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .course-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Content Cards */
+        .content-section {
+            margin-bottom: 25px;
+        }
+        
+        .info-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-left: 5px solid #ffd700;
+        }
+        
+        .info-card h2 {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card h2 span {
+            font-size: 28px;
+        }
+        
+        .info-card p {
+            color: #444;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-card li {
+            color: #444;
+            font-size: 15px;
+            padding: 10px 0 10px 35px;
+            position: relative;
+            line-height: 1.6;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .info-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(145deg, #22c55e, #16a34a);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        /* Career Cards Grid */
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .career-card {
+            background: linear-gradient(145deg, #1e3a8a, #0f2657);
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .career-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            box-shadow: 0 15px 40px rgba(30,58,138,0.3);
+        }
+        
+        .career-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .career-title {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+        }
+        
+        /* Topics List Card */
+        .topics-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-top: 4px solid #ffd700;
+        }
+        
+        .topics-card h2 {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .topics-card h2 span {
+            font-size: 28px;
+        }
+        
+        .topics-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+        
+        .topic-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            background: linear-gradient(145deg, #f8f9ff, #e8ecff);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .topic-item:hover {
+            background: linear-gradient(145deg, #1e3a8a, #0f2657);
+        }
+        
+        .topic-item:hover .topic-bullet {
+            background: #ffd700;
+            color: #1e3a8a;
+        }
+        
+        .topic-item:hover .topic-text {
+            color: #fff;
+        }
+        
+        .topic-bullet {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(145deg, #1e3a8a, #0f2657);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .topic-text {
+            color: #444;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        /* Fee Card */
+        .fee-card {
+            background: linear-gradient(145deg, #ffd700, #ffb700);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(255,215,0,0.3);
+        }
+        
+        .fee-card h2 {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .fee-details {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .fee-item {
+            text-align: center;
+        }
+        
+        .fee-label {
+            color: #1e3a8a;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .fee-value {
+            color: #1e3a8a;
+            font-size: 28px;
+            font-weight: 800;
+        }
+        
+        /* CTA Buttons */
+        .cta-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(145deg, #1e3a8a, #0f2657);
+            color: #fff;
+            border: 2px solid #ffd700;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(30,58,138,0.4);
+        }
+        
+        .cta-whatsapp {
+            background: linear-gradient(145deg, #25d366, #128c7e);
+            color: #fff;
+        }
+        
+        .cta-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(145deg, #1e3a8a, #0f2657);
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+        
+        .contact-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #ffd700;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 18px;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .contact-label {
+            color: #ffd700;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .contact-value {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .contact-card a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        footer p {
+            color: #1e3a8a;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        footer .copyright {
+            color: #666;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                border-radius: 20px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 22px;
+            }
+            
+            .hero p {
+                font-size: 14px;
+            }
+            
+            .info-card, .topics-card {
+                padding: 20px;
+            }
+            
+            .career-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .fee-details {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">श्री सांवरिया कंप्यूटर इंस्टिट्यूट</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">होम</a>
+                <a href="rscit.html" class="nav-link">RS-CIT</a>
+                <a href="tally.html" class="nav-link active">Tally</a>
+            </div>
+        </nav>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="course-icon">💰</div>
+                <h1>Tally कोर्स – अकाउंटिंग में करियर बनाने का सुनहरा मौका</h1>
+                <p>Tally आज सबसे ज्यादा इस्तेमाल होने वाला अकाउंटिंग सॉफ्टवेयर है। छोटी दुकान से लेकर बड़ी कंपनी तक हर जगह Tally की जरूरत होती है।</p>
+            </div>
+        </section>
+        
+        <!-- Why Tally -->
+        <section class="content-section">
+            <div class="info-card">
+                <h2><span>🎯</span> Tally क्यों जरूरी है?</h2>
+                <ul>
+                    <li>हर दुकान और ऑफिस में अकाउंटिंग</li>
+                    <li>GST, बिलिंग और रिपोर्टिंग</li>
+                    <li>जल्दी नौकरी के अवसर</li>
+                    <li>कम पढ़ाई में अच्छा करियर</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Career Options -->
+        <section class="content-section">
+            <div class="info-card">
+                <h2><span>💼</span> करियर विकल्प</h2>
+            </div>
+            <div class="career-grid">
+                <div class="career-card">
+                    <div class="career-icon">👨‍💻</div>
+                    <div class="career-title">Tally ऑपरेटर</div>
+                </div>
+                <div class="career-card">
+                    <div class="career-icon">📊</div>
+                    <div class="career-title">अकाउंटेंट</div>
+                </div>
+                <div class="career-card">
+                    <div class="career-icon">🧾</div>
+                    <div class="career-title">बिलिंग एग्जीक्यूटिव</div>
+                </div>
+                <div class="career-card">
+                    <div class="career-icon">📋</div>
+                    <div class="career-title">GST असिस्टेंट</div>
+                </div>
+                <div class="career-card">
+                    <div class="career-icon">🏢</div>
+                    <div class="career-title">बिजनेस अकाउंटिंग</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Topics -->
+        <section class="content-section">
+            <div class="topics-card">
+                <h2><span>📖</span> Tally में क्या सीखेंगे?</h2>
+                <div class="topics-list">
+                    <div class="topic-item">
+                        <div class="topic-bullet">1</div>
+                        <div class="topic-text">कंपनी बनाना</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">2</div>
+                        <div class="topic-text">लेजर बनाना</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">3</div>
+                        <div class="topic-text">खरीद और बिक्री एंट्री</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">4</div>
+                        <div class="topic-text">कैश / बैंक एंट्री</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">5</div>
+                        <div class="topic-text">डेबिट और क्रेडिट कॉन्सेप्ट</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">6</div>
+                        <div class="topic-text">GST सेटअप और इनवॉइस</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">7</div>
+                        <div class="topic-text">प्रॉफिट एंड लॉस</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">8</div>
+                        <div class="topic-text">बैलेंस शीट</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">9</div>
+                        <div class="topic-text">TDS जानकारी</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">10</div>
+                        <div class="topic-text">स्टॉक और इन्वेंट्री</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-bullet">11</div>
+                        <div class="topic-text">रियल ऑफिस प्रैक्टिकल</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Fee Card -->
+        <div class="fee-card">
+            <h2>⏱️ अवधि और 💰 फीस</h2>
+            <div class="fee-details">
+                <div class="fee-item">
+                    <div class="fee-label">कोर्स अवधि</div>
+                    <div class="fee-value">3 महीने</div>
+                </div>
+                <div class="fee-item">
+                    <div class="fee-label">कोर्स फीस</div>
+                    <div class="fee-value">₹6000</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-buttons">
+                <a href="tel:7425805337" class="cta-btn cta-primary">
+                    <span>📞</span> अभी कॉल करें
+                </a>
+                <a href="https://wa.me/917425805337" class="cta-btn cta-whatsapp" target="_blank">
+                    <span>💬</span> व्हाट्सएप पर जानें
+                </a>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="contact-title">संपर्क जानकारी</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-label">फोन नंबर</div>
+                    <div class="contact-value">
+                        <a href="tel:7425805337">7425805337</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <div class="contact-label">व्हाट्सएप</div>
+                    <div class="contact-value">
+                        <a href="https://wa.me/917425805337" target="_blank">7425805337</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-label">ईमेल</div>
+                    <div class="contact-value">
+                        <a href="mailto:ujjubanna123@gmail.com">ujjubanna123@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📸</div>
+                    <div class="contact-label">इंस्टाग्राम</div>
+                    <div class="contact-value">
+                        <a href="https://instagram.com/sawariya_computerhub" target="_blank">sawariya_computerhub</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🏠</div>
+                    <div class="contact-label">पता</div>
+                    <div class="contact-value">
+                        <a href="https://maps.google.com/?q=लक्ष्मणपुरा, नाथ जी महाराज मंदिर के पास, नाणा" target="_blank">लक्ष्मणपुरा, नाणा</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <p>श्री सांवरिया कंप्यूटर इंस्टिट्यूट</p>
+            <p class="copyright">© 2026 सभी अधिकार सुरक्षित</p>
+        </footer>
+    </div>
+</body>
+</html>
